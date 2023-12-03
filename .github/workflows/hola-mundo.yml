@@ -1,0 +1,16 @@
+name: Aprendiendo GitHub Actions                                    #Nombre del workflow
+run-name: ¡Estoy aprendiendo GitHub Actions!                        #Nombre que se muestra en el actions
+on:                                                                 #Evento que lo activará
+  push:
+    branches:
+      - main
+jobs:                                                               #Definición de los Jobs
+  hola-mundo:                                                       # Nombre del Job
+    runs-on: ubuntu-latest                                          #Maquina en la que correrá el script
+    steps:                                                          #Lista de Steps del Job hola-mundo
+      - name: Checkout                                              #Nombre del Step
+        uses: actions/checkout@v3                                   #Checkout de la rama del repo a la maquina
+      - name: Definir variable                                      #Nombre del Step
+        run: echo "USERNAME=${{ github.actor }}" >> $GITHUB_ENV     #Imprime el username y lo envia a la variavle de entorno
+      - name: Correr script                                         #Nombre del Step
+        run: python hola_mundo.py                                   #Ejecuta el Scrip
