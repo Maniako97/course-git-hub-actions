@@ -1,6 +1,9 @@
 name: Aprendiendo GitHub Actions                                    #Nombre del workflow
 run-name: ¡Estoy aprendiendo GitHub Actions!                        #Nombre que se muestra en el actions
-on: [push]                                                          #Evento que lo activará
+on:                                                                 #Evento que lo activará
+  push:
+    branches:
+      - main
 jobs:                                                               #Definición de los Jobs
   hola-mundo:                                                       # Nombre del Job
     runs-on: ubuntu-latest                                          #Maquina en la que correrá el script
